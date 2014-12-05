@@ -78,6 +78,8 @@ notably:
 
 ## Instructions
 
+### Install
+
 1. Install Drupal as you normally would except choose the "Minimal"
    installation profile (if you normally don't).
 2. After Drupal is installed and you see the "Proceed to your new site" link,
@@ -90,3 +92,11 @@ notably:
 4. Enjoy! The script takes about five minutes to run, but will vary based on
    machine and your internet connection speed.
 
+### Caveats
+
+As I mentioned, this script is useful for 90% of **my** Drupal projects. Things
+to note:
+
+* Drush must be installed on your system.
+* This will not work for multisite installs, or will only affect the "Default"
+  site.
