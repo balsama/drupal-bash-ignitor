@@ -86,9 +86,11 @@ notably:
    place the `dbi.sh` file (contained in this repository) in docroot of your
    Drupal installation. The `dbi.sh` file should be siblings with Drupal's
    `index.php` file. Or run the following command from Drupal's docroot:
-       wget https://raw.githubusercontent.com/balsama/drupal-bash-ignitor/master/dbi.sh
+
+        wget https://raw.githubusercontent.com/balsama/drupal-bash-ignitor/master/dbi.sh
 3. From Drupal's docroot, run the following command:
-       bash dbi.sh
+
+        bash dbi.sh
 4. Enjoy! The script takes about five minutes to run, but will vary based on
    machine and your internet connection speed.
 
