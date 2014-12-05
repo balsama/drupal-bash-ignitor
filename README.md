@@ -87,7 +87,7 @@ notably:
    Drupal installation. The `dbi.sh` file should be siblings with Drupal's
    `index.php` file. Or run the following command from Drupal's docroot:
 
-        wget https://raw.githubusercontent.com/balsama/drupal-bash-ignitor/master/dbi.sh
+        wget https://raw.githubusercontent.com/balsama/drupal-bash-ignitor/master/dbi.sh --no-check-certificate
 3. From Drupal's docroot, run the following command:
 
         bash dbi.sh
