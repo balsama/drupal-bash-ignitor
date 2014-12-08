@@ -39,6 +39,7 @@ git clone https://github.com/balsama/markdown_text_format.git sites/all/modules/
 rm -rf sites/all/modules/custom/beannorev/.git
 rm -rf sites/all/modules/custom/beannotitle/.git
 rm -rf sites/all/modules/features/image_styles/.git
+rm -rf sites/all/modules/features/markdown_text_format/.git
 
 # Download contrib themes
 drush dl bootstrap
