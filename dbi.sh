@@ -110,6 +110,7 @@ drush en field_group -y
 drush en icon, icon_field, icon_menu -y
 drush en insert -y
 drush en jquery_update -y
+drush en link -y
 drush en markdown -y
 drush en publication_date -y
 drush en strongarm -y
