@@ -86,18 +86,23 @@ notably:
 
 ### Install
 
-1. Install Drupal as you normally would except choose the "Minimal"
-   installation profile (if you normally don't).
-2. After Drupal is installed and you see the "Proceed to your new site" link,
-   place the `dbi.sh` file (contained in this repository) in docroot of your
-   Drupal installation. The `dbi.sh` file should be siblings with Drupal's
-   `index.php` file. Or run the following command from Drupal's docroot:
+1. Place the `dbi.sh` in the parent directory of where you want to install
+   Drupal. For example, if you want to install Drupal in
+   `/var/www/vhost/mysite/public_html`, you should place and run this script in
+   `var/www/vhosts/mysite`.
+
+   You can use the following to download the script:
 
         wget https://raw.githubusercontent.com/balsama/drupal-bash-ignitor/master/dbi.sh --no-check-certificate
-3. From Drupal's docroot, run the following command:
+
+2. From the same directory, run the following command:
 
         bash dbi.sh
-4. Enjoy! The script takes about five minutes to run, but will vary based on
+
+3. The script will prompt you for the directory name (e.g. `public_html`), the
+   databse name, and the database user and password.
+
+4. Enjoy! The script takes about seven minutes to run, but will vary based on
    machine and your internet connection speed.
 
 ### Caveats
