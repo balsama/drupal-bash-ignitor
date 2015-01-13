@@ -1,3 +1,101 @@
+#!/bin/bash
+
+cat << "EOF"
+
+       /$$$$$$$                                          /$$
+      | $$__  $$                                        | $$
+      | $$  \ $$  /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$ | $$
+      | $$  | $$ /$$__  $$| $$  | $$ /$$__  $$ |____  $$| $$
+      | $$  | $$| $$  \__/| $$  | $$| $$  \ $$  /$$$$$$$| $$
+      | $$  | $$| $$      | $$  | $$| $$  | $$ /$$__  $$| $$
+      | $$$$$$$/| $$      |  $$$$$$/| $$$$$$$/|  $$$$$$$| $$
+      |_______/ |__/       \______/ | $$____/  \_______/|__/
+                                    | $$
+                                    | $$
+                                    |__/
+ /$$$$$$  /$$$$$$  /$$   /$$ /$$$$$$ /$$$$$$$$ /$$$$$$  /$$$$$$$
+|_  $$_/ /$$__  $$| $$$ | $$|_  $$_/|__  $$__//$$__  $$| $$__  $$
+  | $$  | $$  \__/| $$$$| $$  | $$     | $$  | $$  \ $$| $$  \ $$
+  | $$  | $$ /$$$$| $$ $$ $$  | $$     | $$  | $$  | $$| $$$$$$$/
+  | $$  | $$|_  $$| $$  $$$$  | $$     | $$  | $$  | $$| $$__  $$
+  | $$  | $$  \ $$| $$\  $$$  | $$     | $$  | $$  | $$| $$  \ $$
+ /$$$$$$|  $$$$$$/| $$ \  $$ /$$$$$$   | $$  |  $$$$$$/| $$  | $$
+|______/ \______/ |__/  \__/|______/   |__/   \______/ |__/  |__/
+
+
+EOF
+
+read -r -p "
+Welcome to the Boston Interactive Drupal Ignitor.
+
+You should run this script from the parent directory of where you want to install Drupal.
+
+For example, if you want to install Drupal at:
+'/var/www/vhosts/sitename/public_html/',
+
+...you should run this script from:
+'/var/www/vhosts/sitename/'.
+
+Your current working directory is:
+${PWD}
+
+Is this correct? [Y/n]" response
+
+case $response in
+    [yY][eE][sS]|[yY])
+        echo "continuing
+        "
+        ;;
+    *)
+        echo "Aborting"
+        exit 1
+        ;;
+esac
+
+echo -n "Enter the name of the directory in which Drupal should be installed. (WARNING: if the directory already exists, all contents will be overwritten.): "
+read -e DIRECTORY
+
+echo -n "Enter the database name: "
+read -e DB_NAME
+
+echo -n "Enter the database user name: "
+read -e DB_UN
+
+echo -n "Enter the database password: "
+read -e DB_PASS
+
+echo "
+You entered the following:
+"
+
+echo Directory name: $DIRECTORY
+echo Database name: $DB_NAME
+echo Database user: $DB_UN
+echo Database password: $DB_PASS
+
+read -r -p "
+
+Is this correct? [Y/n]" response
+
+case $response in
+    [yY][eE][sS]|[yY])
+        echo "continuing
+        "
+        ;;
+    *)
+        echo "Aborting"
+        exit 1
+        ;;
+esac
+
+drush dl --drupal-project-rename=$DIRECTORY --yes
+
+cp $DIRECTORY/sites/default/default.settings.php $DIRECTORY/sites/default/settings.php
+
+cd $DIRECTORY
+
+drush site-install minimal --db-url=mysql://$DB_UN:$DB_PASS@localhost/$DB_NAME --account-name=admin --account-pass=changeme --yes
+
 printf "\n##\n# Do not inturrupt this process. Configuration usually takes about five minutes.\n##\n"
 
 # Organize our module directory
@@ -141,4 +239,6 @@ printf "\n##\n# Finishing up\n##\n"
 drush cc all
 
 printf "\n##\n# Configuration complete!\n##\n"
+
+printf "\n##\n# You can login to your new Drupal site with the username: 'admin' and the password: 'changeme'.\n##\n"
 

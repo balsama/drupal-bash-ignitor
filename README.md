@@ -1,12 +1,18 @@
 # Drupal Bash Ignitor
 
-<p class="lead">Bash script to get ignite your drupal project.</p>
+<p class="lead">Bash script to get ignite your Drupal project.</p>
 
 ## Overview
-This script will enable several core modules, download and enable several
-contrib modules, and clone and enable several custom modules, features and
-themes. Basically, it automates the first four hours of work on 90% of the
-Drupal sites I build.
+This script will install Drupal, enable several core modules, download and
+enable several contrib modules, and clone and enable several custom modules,
+features and themes. Basically, it automates the first four hours of work on
+90% of the Drupal sites I build.
+
+### What you'll need
+* Drush
+* An empty database or a database that you're OK with overwriting
+* This script (`dbi.sh`), downloaded to the parent directory of where you
+  ultimately want to install Drupal
 
 ### Core modules enabled:
 
