@@ -26,7 +26,7 @@ cat << "EOF"
 EOF
 
 read -r -p "
-Welcome to the Boston Interactive Drupal Ignitor.
+Welcome to Drupal Ignitor.
 
 You should run this script from the parent directory of where you want to install Drupal.
 
