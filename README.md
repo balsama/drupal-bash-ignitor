@@ -79,8 +79,10 @@ features and themes. Basically, it automates the first four hours of work on
 I decided not to go with creating a Distribution for several reasons. Most
 notably:
 
-* You need a full project on DO
-* You aren't allowed to include modules or themes that aren't full projects
+* ~~You need a full project on DO~~
+* ~~You aren't allowed to include modules or themes that aren't full projects~~
+
+(I know know these aren't valid! Should have used a distro!)
 
 ## Instructions
 
